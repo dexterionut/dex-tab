@@ -47,7 +47,38 @@
                 justified: '@',
                 custom: '@'
             },
-            templateUrl: 'app/shared/directives/dex-tab/dex-tabset.html',
+            template: `<div role="tabpanel" ng-class="tabset.panel">
+    <div class="row m-b" ng-if="tabset.showDefault">
+        <div class="col-md-12">
+            <!--If custom="true" attribute is not present-->
+            <div class="btn-group" >
+                <label class="btn btn-sm btn-default"
+                       ng-model="tabset.radioModel" btn-radio="{{tab.id}}"
+                       data-ng-repeat="tab in tabset.tabs"
+                       ng-click="tabset.select(tab)">
+                    <i class="fa text-active"></i><i class="fa {{tab.icon}}"></i> {{tab.heading}}
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <!--If custom="true" attribute is present-->
+    <ul class="nav" ng-class="tabset.classes" ng-if="tabset.showCustom" role="tablist">
+        <li role="presentation"
+            ng-repeat="tab in tabset.tabs"
+            ng-class="{'active': tab.active}">
+
+            <a href
+               role="tab"
+               ng-click="tabset.select(tab)"> <i class="m-r-xs fa {{tab.icon}}"></i> {{tab.heading}}
+            </a>
+        </li>
+    </ul>
+
+    <ng-transclude ng-class="tabset.content">
+    </ng-transclude>
+</div>`,
             bindToController: true,
             controller: 'DexTabsetController',
             controllerAs: 'tabset'

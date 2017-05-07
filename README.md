@@ -10,17 +10,21 @@ Tested with AngularJS 1.3.11, angular-bootstrap 0.13.1 and bootstrap 3.3.0
 
 Example html use:
 
-*Default*
- <dex-tabset>
+Default:
+```html
+<dex-tabset>
        <dex-tab heading="Tab 1" icon="fa fa-globe">Tab 1 content</dex-tab>
        <dex-tab heading="Tab 2" icon="fa fa-send">Tab 2 content</dex-tab>
  </dex-tabset>
+ ```
 
- *Vertical pills*
+ Vertical pills:
+ ```html
  <dex-tabset custom="true" type="pills" vertical="true">
        <dex-tab heading="Tab 1" icon="fa fa-globe">Tab 1 content</dex-tab>
        <dex-tab heading="Tab 2" icon="fa fa-send">Tab 2 content</dex-tab>
  </dex-tabset>
+ ```
 
 
  Use default for button-like tabs.
